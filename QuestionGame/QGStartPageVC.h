@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  QGStartPageVC.h
 //  QuestionGame
 //
 //  Created by Elsa Filippidou on 04/03/2017.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface QGStartPageVC : UIViewController
 
 
 @end

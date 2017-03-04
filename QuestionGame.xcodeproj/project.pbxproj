@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		68DE0AA11E6B119800DD3DD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DE0AA01E6B119800DD3DD7 /* main.m */; };
 		68DE0AA41E6B119800DD3DD7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DE0AA31E6B119800DD3DD7 /* AppDelegate.m */; };
-		68DE0AA71E6B119800DD3DD7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DE0AA61E6B119800DD3DD7 /* ViewController.m */; };
+		68DE0AA71E6B119800DD3DD7 /* QGStartPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DE0AA61E6B119800DD3DD7 /* QGStartPageVC.m */; };
 		68DE0AAA1E6B119800DD3DD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68DE0AA81E6B119800DD3DD7 /* Main.storyboard */; };
 		68DE0AAD1E6B119800DD3DD7 /* QuestionGame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68DE0AAB1E6B119800DD3DD7 /* QuestionGame.xcdatamodeld */; };
 		68DE0AAF1E6B119800DD3DD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68DE0AAE1E6B119800DD3DD7 /* Assets.xcassets */; };
 		68DE0AB21E6B119800DD3DD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68DE0AB01E6B119800DD3DD7 /* LaunchScreen.storyboard */; };
+		68DE0ABB1E6B145C00DD3DD7 /* QGOpenTriviaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DE0ABA1E6B145C00DD3DD7 /* QGOpenTriviaManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,13 +22,15 @@
 		68DE0AA01E6B119800DD3DD7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		68DE0AA21E6B119800DD3DD7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		68DE0AA31E6B119800DD3DD7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		68DE0AA51E6B119800DD3DD7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		68DE0AA61E6B119800DD3DD7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		68DE0AA51E6B119800DD3DD7 /* QGStartPageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QGStartPageVC.h; sourceTree = "<group>"; };
+		68DE0AA61E6B119800DD3DD7 /* QGStartPageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QGStartPageVC.m; sourceTree = "<group>"; };
 		68DE0AA91E6B119800DD3DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		68DE0AAC1E6B119800DD3DD7 /* QuestionGame.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuestionGame.xcdatamodel; sourceTree = "<group>"; };
 		68DE0AAE1E6B119800DD3DD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68DE0AB11E6B119800DD3DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68DE0AB31E6B119800DD3DD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68DE0AB91E6B145C00DD3DD7 /* QGOpenTriviaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGOpenTriviaManager.h; sourceTree = "<group>"; };
+		68DE0ABA1E6B145C00DD3DD7 /* QGOpenTriviaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGOpenTriviaManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +65,10 @@
 			children = (
 				68DE0AA21E6B119800DD3DD7 /* AppDelegate.h */,
 				68DE0AA31E6B119800DD3DD7 /* AppDelegate.m */,
-				68DE0AA51E6B119800DD3DD7 /* ViewController.h */,
-				68DE0AA61E6B119800DD3DD7 /* ViewController.m */,
+				68DE0AA51E6B119800DD3DD7 /* QGStartPageVC.h */,
+				68DE0AA61E6B119800DD3DD7 /* QGStartPageVC.m */,
+				68DE0AB91E6B145C00DD3DD7 /* QGOpenTriviaManager.h */,
+				68DE0ABA1E6B145C00DD3DD7 /* QGOpenTriviaManager.m */,
 				68DE0AA81E6B119800DD3DD7 /* Main.storyboard */,
 				68DE0AAE1E6B119800DD3DD7 /* Assets.xcassets */,
 				68DE0AB01E6B119800DD3DD7 /* LaunchScreen.storyboard */,
@@ -154,7 +159,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68DE0AA71E6B119800DD3DD7 /* ViewController.m in Sources */,
+				68DE0AA71E6B119800DD3DD7 /* QGStartPageVC.m in Sources */,
+				68DE0ABB1E6B145C00DD3DD7 /* QGOpenTriviaManager.m in Sources */,
 				68DE0AA41E6B119800DD3DD7 /* AppDelegate.m in Sources */,
 				68DE0AA11E6B119800DD3DD7 /* main.m in Sources */,
 				68DE0AAD1E6B119800DD3DD7 /* QuestionGame.xcdatamodeld in Sources */,

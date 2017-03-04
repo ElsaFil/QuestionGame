@@ -15,6 +15,8 @@
 		68DE0AAF1E6B119800DD3DD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68DE0AAE1E6B119800DD3DD7 /* Assets.xcassets */; };
 		68DE0AB21E6B119800DD3DD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68DE0AB01E6B119800DD3DD7 /* LaunchScreen.storyboard */; };
 		68DE0ABB1E6B145C00DD3DD7 /* QGOpenTriviaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DE0ABA1E6B145C00DD3DD7 /* QGOpenTriviaManager.m */; };
+		68DE0ABE1E6B306900DD3DD7 /* QGGameOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DE0ABD1E6B306900DD3DD7 /* QGGameOptionsVC.m */; };
+		68DE0AC11E6B3CEF00DD3DD7 /* QGOptionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DE0AC01E6B3CEF00DD3DD7 /* QGOptionButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,10 @@
 		68DE0AB31E6B119800DD3DD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68DE0AB91E6B145C00DD3DD7 /* QGOpenTriviaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGOpenTriviaManager.h; sourceTree = "<group>"; };
 		68DE0ABA1E6B145C00DD3DD7 /* QGOpenTriviaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGOpenTriviaManager.m; sourceTree = "<group>"; };
+		68DE0ABC1E6B306900DD3DD7 /* QGGameOptionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGGameOptionsVC.h; sourceTree = "<group>"; };
+		68DE0ABD1E6B306900DD3DD7 /* QGGameOptionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGGameOptionsVC.m; sourceTree = "<group>"; };
+		68DE0ABF1E6B3CEF00DD3DD7 /* QGOptionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QGOptionButton.h; path = ../QGOptionButton.h; sourceTree = "<group>"; };
+		68DE0AC01E6B3CEF00DD3DD7 /* QGOptionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QGOptionButton.m; path = ../QGOptionButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,10 @@
 				68DE0AA61E6B119800DD3DD7 /* QGStartPageVC.m */,
 				68DE0AB91E6B145C00DD3DD7 /* QGOpenTriviaManager.h */,
 				68DE0ABA1E6B145C00DD3DD7 /* QGOpenTriviaManager.m */,
+				68DE0ABC1E6B306900DD3DD7 /* QGGameOptionsVC.h */,
+				68DE0ABD1E6B306900DD3DD7 /* QGGameOptionsVC.m */,
+				68DE0ABF1E6B3CEF00DD3DD7 /* QGOptionButton.h */,
+				68DE0AC01E6B3CEF00DD3DD7 /* QGOptionButton.m */,
 				68DE0AA81E6B119800DD3DD7 /* Main.storyboard */,
 				68DE0AAE1E6B119800DD3DD7 /* Assets.xcassets */,
 				68DE0AB01E6B119800DD3DD7 /* LaunchScreen.storyboard */,
@@ -160,6 +170,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				68DE0AA71E6B119800DD3DD7 /* QGStartPageVC.m in Sources */,
+				68DE0AC11E6B3CEF00DD3DD7 /* QGOptionButton.m in Sources */,
+				68DE0ABE1E6B306900DD3DD7 /* QGGameOptionsVC.m in Sources */,
 				68DE0ABB1E6B145C00DD3DD7 /* QGOpenTriviaManager.m in Sources */,
 				68DE0AA41E6B119800DD3DD7 /* AppDelegate.m in Sources */,
 				68DE0AA11E6B119800DD3DD7 /* main.m in Sources */,

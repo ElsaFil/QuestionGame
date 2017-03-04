@@ -7,6 +7,7 @@
 //
 
 #import "QGStartPageVC.h"
+#import "QGGameOptionsVC.h"
 
 @interface QGStartPageVC ()
 
@@ -14,6 +15,8 @@
 @property (nonatomic, strong) UIButton *infoBtn;
 @property (nonatomic, strong) UIButton *howToPlayBtn;
 @property (nonatomic, strong) UIButton *startGameBtn;
+
+@property (nonatomic, strong) UINavigationController *navigationController;
 
 @end
 
@@ -77,7 +80,12 @@
 
 - (void)showStartGamePage:(UIButton*)sender
 {
-    
+    QGGameOptionsVC *gameOptionsVC = [[QGGameOptionsVC alloc] init];
+//    [self presentViewController:gameOptionsVC animated:YES completion:nil];
+    if (!self.navigationController) {
+        self.navigationController = [[UINavigationController alloc] initWithRootViewController:gameOptionsVC];
+    }
+    [self presentViewController:self.navigationController animated:YES completion:nil];
 }
 
 @end

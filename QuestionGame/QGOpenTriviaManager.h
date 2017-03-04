@@ -36,6 +36,12 @@ typedef NS_ENUM (NSUInteger,QGEncoding) {
 
 @interface QGOpenTriviaManager : NSObject
 
+@property (nonatomic, assign) NSInteger amount;
+@property (nonatomic, assign) NSInteger category;
+@property (nonatomic, strong) NSString *difficulty;
+@property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *encoding;
+
 /**
  @brief Makes a REST call to the Open Trivia Database API to fetch questions and answers following the specified (or the default) parameters.
  @param category Category of the questions. Default: any

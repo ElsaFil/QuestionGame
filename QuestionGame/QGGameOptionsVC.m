@@ -96,7 +96,7 @@
     self.startGameBtn = [[UIButton alloc] init];
     [self.startGameBtn setTitle:@"Ready!" forState:UIControlStateNormal];
     [self.startGameBtn addTarget:self action:@selector(startGame:) forControlEvents:UIControlEventTouchUpInside];
-    [self.startGameBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:16.0]];
+    [self.startGameBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:18.0]];
     [self.startGameBtn setBackgroundColor:[UIColor greenColor]];
     [self.view addSubview:self.startGameBtn];
 }
@@ -161,6 +161,7 @@
             for (QGOptionButton *btn in self.categoryButtons){
                 if (![btn isEqual:sender]) {
                     btn.isSelected = NO;
+                    [btn layoutSubviews];
                 }
             }
         }
@@ -168,6 +169,7 @@
             for (QGOptionButton *btn in self.difficultyButtons){
                 if (![btn isEqual:sender]) {
                     btn.isSelected = NO;
+                    [btn layoutSubviews];
                 }
             }
         }

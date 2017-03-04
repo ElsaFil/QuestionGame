@@ -13,24 +13,21 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
-    
-    [self.titleLabel setTextColor:[UIColor blackColor]];
+//    [self.titleLabel setTextColor:[UIColor blackColor]];
 }
 
-- (void)setIsSelected:(BOOL)isSelected
+- (void)layoutSubviews
 {
-    if (isSelected != _isSelected) {
-        
-        _isSelected = isSelected;
-        
-        if (isSelected){
-            [self setBackgroundColor:[UIColor greenColor]];
-        }
-        else {
-            [self setBackgroundColor:[UIColor magentaColor]];
-        }
+    [super layoutSubviews];
+    if (_isSelected){
+        [self setBackgroundColor:[UIColor greenColor]];
+        [self.titleLabel setTextColor:[UIColor blackColor]];
     }
+    else {
+        [self setBackgroundColor:[UIColor magentaColor]];
+        [self.titleLabel setTextColor:[UIColor whiteColor]];
+    }
+    
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "QGGameOptionsVC.h"
 #import "QGOptionButton.h"
+#import "QGOpenTriviaManager.h"
 
 @interface QGGameOptionsVC ()
 
@@ -26,6 +27,9 @@
 @property (nonatomic, strong) NSArray *difficultyButtons;
 
 @property (nonatomic, strong) UIButton *startGameBtn;
+
+@property (nonatomic, assign) QGCategories selectedCategory;
+@property (nonatomic, assign) QGDifficulty selectedDifficulty;
 
 @end
 
@@ -95,7 +99,7 @@
     // start game button
     self.startGameBtn = [[UIButton alloc] init];
     [self.startGameBtn setTitle:@"Ready!" forState:UIControlStateNormal];
-    [self.startGameBtn addTarget:self action:@selector(startGame:) forControlEvents:UIControlEventTouchUpInside];
+    [self.startGameBtn addTarget:self action:@selector(downloadQuestionsAndStartGame:) forControlEvents:UIControlEventTouchUpInside];
     [self.startGameBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:18.0]];
     [self.startGameBtn setBackgroundColor:[UIColor greenColor]];
     [self.view addSubview:self.startGameBtn];
@@ -158,6 +162,9 @@
     if (sender.isSelected) {
         // turn off other options
         if (sender.type == QGOptionButtonTypeCategory) {
+            
+            self.selectedCategory = [self.categoryButtons indexOfObject:sender];
+            
             for (QGOptionButton *btn in self.categoryButtons){
                 if (![btn isEqual:sender]) {
                     btn.isSelected = NO;
@@ -166,6 +173,9 @@
             }
         }
         else if (sender.type == QGOptionButtonTypeDifficulty){
+            
+            self.selectedDifficulty = [self.difficultyButtons indexOfObject:sender];
+            
             for (QGOptionButton *btn in self.difficultyButtons){
                 if (![btn isEqual:sender]) {
                     btn.isSelected = NO;
@@ -181,9 +191,22 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)startGame:(UIButton*)sender
+- (void)downloadQuestionsAndStartGame:(UIButton*)sender
 {
-    
+    [[QGOpenTriviaManager sharedInstance] getQuestionsForCategory:self.selectedCategory
+                                                numberOfQuestions:50
+                                                       difficulty:self.selectedDifficulty
+                                                             type:QGAnswerTypeAny
+                                                         encoding:QGEncodingDefault
+                                                  completionBlock:^(BOOL success, NSError *error) {
+                                                      
+                                                      if (success && !error) {
+                                                          // continue with game
+                                                      }
+                                                      else {
+                                                          // show alert
+                                                      }
+                                                  }];
 }
 
 

@@ -9,6 +9,7 @@
 // Open Trivia Database API documentation: https://opentdb.com/api_config.php
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 extern NSString *baseURL;
 
@@ -24,7 +25,8 @@ typedef NS_ENUM (NSUInteger,QGDifficulty) {
     QGDifficultyHard
 };
 typedef NS_ENUM (NSUInteger,QGAnswerType) {
-    QGAnswerTypeMultipleChoice = 0,
+    QGAnswerTypeAny = 0,
+    QGAnswerTypeMultipleChoice,
     QGAnswerTypeTrueFalse
 };
 typedef NS_ENUM (NSUInteger,QGEncoding) {
@@ -42,6 +44,10 @@ typedef NS_ENUM (NSUInteger,QGEncoding) {
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSString *encoding;
 
+@property (nonatomic, strong) UIActivityIndicatorView *spinner;
+
++ (instancetype)sharedInstance;
+
 /**
  @brief Makes a REST call to the Open Trivia Database API to fetch questions and answers following the specified (or the default) parameters.
  @param category Category of the questions. Default: any
@@ -50,6 +56,6 @@ typedef NS_ENUM (NSUInteger,QGEncoding) {
  @param type The type of the answer (multiple selection or true/false). Default: any
  @param encoding The encoding of the questions in the result. Default: default encoding of the API that does not include special characters.
  */
-- (void)getQuestionsForCategory:(QGCategories)category numberOfQuestions:(NSInteger)count difficulty:(QGDifficulty)difficulty type:(QGAnswerType)type encoding:(QGEncoding)encoding;
+- (void)getQuestionsForCategory:(QGCategories)category numberOfQuestions:(NSInteger)count difficulty:(QGDifficulty)difficulty type:(QGAnswerType)type encoding:(QGEncoding)encoding completionBlock:(void (^)(BOOL success, NSError *error))completionHandler;
 
 @end

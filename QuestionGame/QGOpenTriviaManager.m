@@ -7,13 +7,31 @@
 //
 
 #import "QGOpenTriviaManager.h"
+#import "Question+CoreDataClass.h"
+#import "Answer+CoreDataClass.h"
+#import "AppDelegate.h"
 
 NSString *baseURL = @"https://www.opentdb.com/api.php?";
 
 @implementation QGOpenTriviaManager
 
-- (void)getQuestionsForCategory:(QGCategories)category numberOfQuestions:(NSInteger)count difficulty:(QGDifficulty)difficulty type:(QGAnswerType)type encoding:(QGEncoding)encoding
++ (instancetype)sharedInstance
 {
+    static QGOpenTriviaManager *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[QGOpenTriviaManager alloc] init];
+        
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            [spinner setHidesWhenStopped:YES];
+    });
+    return sharedInstance;
+}
+
+- (void)getQuestionsForCategory:(QGCategories)category numberOfQuestions:(NSInteger)count difficulty:(QGDifficulty)difficulty type:(QGAnswerType)type encoding:(QGEncoding)encoding completionBlock:(void (^)(BOOL, NSError *))completionHandler
+{
+    [self startSpinner];
+    
     self.amount = (count > 0)?count:10;
     self.category = category;
     self.difficulty = [self getDifficultyString:difficulty];
@@ -44,32 +62,67 @@ NSString *baseURL = @"https://www.opentdb.com/api.php?";
     task = [session dataTaskWithURL:url completionHandler: ^(NSData *data, NSURLResponse *response, NSError *connectionError)
             {
                 if (connectionError){
-                    // handle error
+                    if (completionHandler){
+                        completionHandler(NO, connectionError);
+                    }
                     return;
                 }
                 
                 NSError *error;
-                NSArray *questions = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+                NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+                NSArray *questions = [result objectForKey:@"results"];
                 
                 if (error) {
-                    // handle error
+                    if (completionHandler){
+                        completionHandler(NO, error);
+                    }
                     return;
                 }
                 
+                AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+                NSManagedObjectContext *context = [[delegate persistentContainer] viewContext];
+                
                 for (int i = 0; i < questions.count; i++) {
                     
-                    NSDictionary *aQuestion = [questions objectAtIndex:i];
+                    NSDictionary *questionJSON = [questions objectAtIndex:i];
                     
-                    // TODO setup Question and Answer objects
+                    // prepare question
+                    Question *nQuestion = [NSEntityDescription insertNewObjectForEntityForName:@"Question" inManagedObjectContext:context];
+                    nQuestion.questionText = [questionJSON objectForKey:@"question"];
+                    nQuestion.category = [questionJSON objectForKey:@"category"];
+                    nQuestion.type = [questionJSON objectForKey:@"type"];
+                    nQuestion.diffuculty = [questionJSON objectForKey:@"difficulty"];
                     
-                    // TODO save
+                    // prepare answers - multiple selection and true/false are handled the same
                     
+                    Answer *corrAnswer = [NSEntityDescription insertNewObjectForEntityForName:@"Answer" inManagedObjectContext:context];
+                    corrAnswer.answerText = [questionJSON objectForKey:@"correct_answer"];
+                    corrAnswer.isCorrect = YES;
+                    corrAnswer.question = nQuestion;
+                    
+                    for (NSString *answerString in [questionJSON objectForKey:@"incorrect_answers"]){
+                        Answer *answer = [NSEntityDescription insertNewObjectForEntityForName:@"Answer" inManagedObjectContext:context];
+                        answer.answerText = answerString;
+                        answer.isCorrect = NO;
+                        answer.question = nQuestion;
+                    }
+                    
+                    NSError *savingError = nil;
+                    if (![context save:&savingError]) {
+                        NSLog(@"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+                        if (completionHandler){
+                            completionHandler(NO, savingError);
+                        }
+                        return;
+                    }
                 }
                 
-                // update UI in main thread
                 dispatch_sync(dispatch_get_main_queue(), ^{
-                    // stop spinner
-                    // start game
+                    [weakSelf stopSpinner];
+                    if (completionHandler){
+                        completionHandler(YES, nil);
+                    }
+                    return;
                 });
                 
             }];
@@ -102,6 +155,7 @@ NSString *baseURL = @"https://www.opentdb.com/api.php?";
     NSString *result = nil;
     
     switch (answerTypeInteger) {
+        case QGAnswerTypeAny: // will return nil
         case QGAnswerTypeMultipleChoice:
             result = @"multiple";
             break;
@@ -131,6 +185,16 @@ NSString *baseURL = @"https://www.opentdb.com/api.php?";
     }
     
     return result;
+}
+
+- (void)startSpinner
+{
+    [self.spinner startAnimating];
+}
+
+- (void)stopSpinner
+{
+    [self.spinner stopAnimating];
 }
 
 @end

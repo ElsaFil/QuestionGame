@@ -17,6 +17,8 @@
 		68DE0ABB1E6B145C00DD3DD7 /* QGOpenTriviaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DE0ABA1E6B145C00DD3DD7 /* QGOpenTriviaManager.m */; };
 		68DE0ABE1E6B306900DD3DD7 /* QGGameOptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DE0ABD1E6B306900DD3DD7 /* QGGameOptionsVC.m */; };
 		68DE0AC11E6B3CEF00DD3DD7 /* QGOptionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DE0AC01E6B3CEF00DD3DD7 /* QGOptionButton.m */; };
+		68F03FAD1E6C54A500836404 /* Question+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F03FA71E6C54A500836404 /* Question+CoreDataProperties.m */; };
+		68F03FAF1E6C54A500836404 /* Answer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F03FAB1E6C54A500836404 /* Answer+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +37,16 @@
 		68DE0ABA1E6B145C00DD3DD7 /* QGOpenTriviaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGOpenTriviaManager.m; sourceTree = "<group>"; };
 		68DE0ABC1E6B306900DD3DD7 /* QGGameOptionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGGameOptionsVC.h; sourceTree = "<group>"; };
 		68DE0ABD1E6B306900DD3DD7 /* QGGameOptionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGGameOptionsVC.m; sourceTree = "<group>"; };
-		68DE0ABF1E6B3CEF00DD3DD7 /* QGOptionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QGOptionButton.h; path = ../QGOptionButton.h; sourceTree = "<group>"; };
-		68DE0AC01E6B3CEF00DD3DD7 /* QGOptionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QGOptionButton.m; path = ../QGOptionButton.m; sourceTree = "<group>"; };
+		68DE0ABF1E6B3CEF00DD3DD7 /* QGOptionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGOptionButton.h; sourceTree = "<group>"; };
+		68DE0AC01E6B3CEF00DD3DD7 /* QGOptionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGOptionButton.m; sourceTree = "<group>"; };
+		68F03FA41E6C54A500836404 /* Question+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Question+CoreDataClass.h"; sourceTree = "<group>"; };
+		68F03FA51E6C54A500836404 /* Question+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Question+CoreDataClass.m"; sourceTree = "<group>"; };
+		68F03FA61E6C54A500836404 /* Question+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Question+CoreDataProperties.h"; sourceTree = "<group>"; };
+		68F03FA71E6C54A500836404 /* Question+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Question+CoreDataProperties.m"; sourceTree = "<group>"; };
+		68F03FA81E6C54A500836404 /* Answer+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Answer+CoreDataClass.h"; sourceTree = "<group>"; };
+		68F03FA91E6C54A500836404 /* Answer+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Answer+CoreDataClass.m"; sourceTree = "<group>"; };
+		68F03FAA1E6C54A500836404 /* Answer+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Answer+CoreDataProperties.h"; sourceTree = "<group>"; };
+		68F03FAB1E6C54A500836404 /* Answer+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Answer+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +79,7 @@
 		68DE0A9E1E6B119800DD3DD7 /* QuestionGame */ = {
 			isa = PBXGroup;
 			children = (
+				68F03FB01E6C54AF00836404 /* CoreData */,
 				68DE0AA21E6B119800DD3DD7 /* AppDelegate.h */,
 				68DE0AA31E6B119800DD3DD7 /* AppDelegate.m */,
 				68DE0AA51E6B119800DD3DD7 /* QGStartPageVC.h */,
@@ -95,6 +106,21 @@
 				68DE0AA01E6B119800DD3DD7 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		68F03FB01E6C54AF00836404 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				68F03FA41E6C54A500836404 /* Question+CoreDataClass.h */,
+				68F03FA51E6C54A500836404 /* Question+CoreDataClass.m */,
+				68F03FA61E6C54A500836404 /* Question+CoreDataProperties.h */,
+				68F03FA71E6C54A500836404 /* Question+CoreDataProperties.m */,
+				68F03FA81E6C54A500836404 /* Answer+CoreDataClass.h */,
+				68F03FA91E6C54A500836404 /* Answer+CoreDataClass.m */,
+				68F03FAA1E6C54A500836404 /* Answer+CoreDataProperties.h */,
+				68F03FAB1E6C54A500836404 /* Answer+CoreDataProperties.m */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,9 +198,11 @@
 				68DE0AA71E6B119800DD3DD7 /* QGStartPageVC.m in Sources */,
 				68DE0AC11E6B3CEF00DD3DD7 /* QGOptionButton.m in Sources */,
 				68DE0ABE1E6B306900DD3DD7 /* QGGameOptionsVC.m in Sources */,
+				68F03FAF1E6C54A500836404 /* Answer+CoreDataProperties.m in Sources */,
 				68DE0ABB1E6B145C00DD3DD7 /* QGOpenTriviaManager.m in Sources */,
 				68DE0AA41E6B119800DD3DD7 /* AppDelegate.m in Sources */,
 				68DE0AA11E6B119800DD3DD7 /* main.m in Sources */,
+				68F03FAD1E6C54A500836404 /* Question+CoreDataProperties.m in Sources */,
 				68DE0AAD1E6B119800DD3DD7 /* QuestionGame.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,6 +362,7 @@
 				68DE0AB81E6B119800DD3DD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -39,6 +39,9 @@
 {
     [super viewDidLoad];
     
+    self.selectedCategory = 0;
+    self.selectedDifficulty = 0;
+    
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
     self.categoryLabel = [[UILabel alloc] init];

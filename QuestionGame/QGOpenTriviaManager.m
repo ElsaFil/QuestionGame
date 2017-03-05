@@ -41,17 +41,17 @@ NSString *baseURL = @"https://www.opentdb.com/api.php?";
     // construct the URL
     // e.g. https://www.opentdb.com/api.php?amount=10&category=12&difficulty=easy&type=multiple&encode=url3986
     NSString *urlString = baseURL;
-    [urlString stringByAppendingString:[NSString stringWithFormat:@"&amount=%lu", self.amount]];
-    [urlString stringByAppendingString:[NSString stringWithFormat:@"&category=%lu", self.category]];
+    urlString = [urlString stringByAppendingString:[NSString stringWithFormat:@"&amount=%lu", self.amount]];
+    urlString = [urlString stringByAppendingString:[NSString stringWithFormat:@"&category=%lu", self.category]];
     
     if (self.difficulty && self.difficulty.length > 0) {
-        [urlString stringByAppendingString:[NSString stringWithFormat:@"&difficulty=%@", self.difficulty]];
+        urlString = [urlString stringByAppendingString:[NSString stringWithFormat:@"&difficulty=%@", self.difficulty]];
     }
     if (self.type && self.type.length > 0){
-        [urlString stringByAppendingString:[NSString stringWithFormat:@"&type=%@", self.type]];
+        urlString = [urlString stringByAppendingString:[NSString stringWithFormat:@"&type=%@", self.type]];
     }
     if (self.encoding && self.encoding.length > 0){
-        [urlString stringByAppendingString:[NSString stringWithFormat:@"&encode=%@", self.encoding]];
+        urlString = [urlString stringByAppendingString:[NSString stringWithFormat:@"&encode=%@", self.encoding]];
     }
     
     NSURL *url = [NSURL URLWithString:urlString];
@@ -106,15 +106,15 @@ NSString *baseURL = @"https://www.opentdb.com/api.php?";
                         answer.isCorrect = NO;
                         answer.question = nQuestion;
                     }
-                    
-                    NSError *savingError = nil;
-                    if (![context save:&savingError]) {
-                        NSLog(@"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
-                        if (completionHandler){
-                            completionHandler(NO, savingError);
-                        }
-                        return;
+                }
+                
+                NSError *savingError = nil;
+                if (![context save:&savingError]) {
+                    NSLog(@"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+                    if (completionHandler){
+                        completionHandler(NO, savingError);
                     }
+                    return;
                 }
                 
                 dispatch_sync(dispatch_get_main_queue(), ^{
@@ -155,7 +155,8 @@ NSString *baseURL = @"https://www.opentdb.com/api.php?";
     NSString *result = nil;
     
     switch (answerTypeInteger) {
-        case QGAnswerTypeAny: // will return nil
+        case QGAnswerTypeAny:
+            break;
         case QGAnswerTypeMultipleChoice:
             result = @"multiple";
             break;
